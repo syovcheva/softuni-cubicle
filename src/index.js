@@ -1,8 +1,12 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
+const path = require('path');
 
 const app = express();
 const PORT = 8000;
+
+// Express config
+app.use(express.static(path.resolve(__dirname, 'public'))) // use the public folder for all static data -> middleware
 
 // Handlebars configuration:
 app.engine('hbs', handlebars.engine({
