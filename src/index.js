@@ -8,13 +8,10 @@ const handlebarsConfig = require('./config/handlebarsConfig');
 const app = express();
 const PORT = 8000;
 
-// Handlebars configuration:
-app.engine('hbs', handlebars.engine({
-    extname:'hbs'
-}));
 expressConfig(app);
 // require('./config/epxressConfig')(app); 
 
+handlebarsConfig(app);
 // Routes
 
 app.get('/', (req, res) => {
