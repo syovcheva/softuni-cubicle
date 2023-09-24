@@ -5,7 +5,11 @@ const router = express.Router();
 const cubeManager = require('../managers/cubeManagers');
 
 router.get('/', (req, res) => { 
-    const cubes = cubeManager.getAll();
+    // console.log(req.query) -> shows { search: 'mirror', from: '1', to: '3' }
+
+    const {search, from, to}  = req.query;
+
+    const cubes = cubeManager.getAll(search, from, to);
     res.render('index', {cubes});
 })
 
