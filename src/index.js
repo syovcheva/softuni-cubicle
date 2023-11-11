@@ -12,7 +12,7 @@ const PORT = 8000;
 dbConnect()
     .then(() => console.log('DB connected successfully'))
     .catch(err => {
-        console.log('DB error: ', err);
+        console.log('DB error: ', err.message);
     })
 
 expressConfig(app);
