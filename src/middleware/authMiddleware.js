@@ -11,9 +11,9 @@ exports.auth = async (req, res, next) => {
         // validate token - if invalid, should be in try...catch block since it's async
         // if sync function => return error
         try {
-            const user = await jwt.verify(token, SECRET);
+            const decodedToken = await jwt.verify(token, SECRET);
 
-            req.user = user;
+            req.user = decodedToken;
 
             next();
         } catch (err) {
