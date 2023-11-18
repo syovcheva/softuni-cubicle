@@ -1,10 +1,9 @@
 const bcrypt = require('bcrypt');
 const jwt=require('../lib/jwt');
-
+const {SECRET} = require('../config/config');
 const User = require('../models/User');
 
 exports.register = (userData) => User.create(userData);
-const SECRET = 'qwertyasdasdzxczxc';
 
 exports.login = async (username, password) => {
     // 1. find user - check if user exists
