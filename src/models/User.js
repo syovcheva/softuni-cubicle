@@ -14,12 +14,16 @@ const userSchema = new mongoose.Schema({
         // }
     },
 });
+
+// TODO validate if user exists
+
 userSchema.virtual('repeatPassword')
     .set(function(value){
         if(value !== this.password) {
             throw new mongoose.MongooseError('Password missmatch!');
         }
     });
+
 
     userSchema.pre('save', async function() {
         const hash = await bcrypt.hash(this.password, 10);
